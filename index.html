@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Treino AB">
+<meta name="theme-color" content="#0d0d0d">
+<title>Treino AB</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black:#0d0d0d; --dark:#141414; --card:#1a1a1a; --border:#2a2a2a;
+    --red:#e03030; --red-dim:#8a1c1c; --text:#e8e8e8; --muted:#777; --white:#fff;
+    --purple:#6b3fa0; --purple-dim:#3a1a5e; --purple-light:#d4aaee;
+    --safe-top: env(safe-area-inset-top);
+    --safe-bottom: env(safe-area-inset-bottom);
+  }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── TAB BAR ── */
+  #tab-bar {
+    display: flex;
+    background: #111;
+    border-top: 1px solid var(--border);
+    padding-bottom: var(--safe-bottom);
+    flex-shrink: 0;
+    order: 2;
+  }
+  .tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color .15s;
+    gap: 4px;
+  }
+  .tab .tab-icon { font-size: 20px; line-height: 1; }
+  .tab.active { color: var(--red); }
+  .tab.active.b-tab { color: #a06bd0; }
+
+  /* ── SCREENS ── */
+  #screens {
+    flex: 1;
+    overflow: hidden;
+    order: 1;
+    position: relative;
+  }
+  .screen {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: none;
+    padding-top: calc(var(--safe-top) + 0px);
+  }
+  .screen.active { display: block; }
+
+  /* ── HEADER ── */
+  .screen-header {
+    padding: 20px 18px 14px;
+    border-bottom: 2px solid var(--red);
+    background: var(--dark);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .screen-header.b { border-bottom-color: var(--purple); }
+  .screen-header .eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--red); margin-bottom: 4px;
+  }
+  .screen-header.b .eyebrow { color: #a06bd0; }
+  .screen-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px; letter-spacing: .05em; line-height: 1; color: var(--white);
+  }
+  .screen-header h1 span { color: var(--red); }
+  .screen-header.b h1 span { color: #c9a0dc; }
+  .screen-header .sub {
+    font-size: 11px; color: var(--muted); margin-top: 3px; letter-spacing: .05em;
+  }
+
+  /* ── BLOCK ── */
+  .block { margin: 12px 14px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); background: var(--card); }
+  .block-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 14px 7px;
+    background: rgba(255,255,255,.03);
+    border-bottom: 1px solid var(--border);
+  }
+  .block-icon { font-size: 14px; }
+  .block-name { font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--red); }
+  .block-name.b { color: #a06bd0; }
+  .block-order { margin-left: auto; font-size: 10px; font-weight: 600; color: var(--muted); background: var(--border); border-radius: 999px; padding: 2px 8px; }
+
+  /* ── EXERCISE ROW ── */
+  .ex-row {
+    display: flex; align-items: center;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    gap: 10px;
+  }
+  .ex-row:last-child { border-bottom: none; }
+  .ex-check {
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 2px solid var(--border);
+    flex-shrink: 0; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .ex-check.done { background: var(--red); border-color: var(--red); }
+  .ex-check.done::after { content: '✓'; color: #fff; font-size: 12px; font-weight: 700; }
+  .b-screen .ex-check.done { background: var(--purple); border-color: var(--purple); }
+  .ex-info { flex: 1; }
+  .ex-name { font-weight: 500; color: var(--text); font-size: 14px; }
+  .ex-tip { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .badge {
+    background: var(--border); border-radius: 5px;
+    padding: 3px 8px; font-size: 11px; font-weight: 600; color: var(--text);
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .badge-red { background: var(--red-dim); color: #fbb; }
+  .badge-purple { background: var(--purple-dim); color: var(--purple-light); }
+
+  /* ── CARDIO ── */
+  .cardio-block {
+    margin: 12px 14px 6px; border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--border); border-top: 2px solid var(--red);
+    background: #111;
+  }
+  .cardio-block.b { border-top-color: var(--purple); }
+  .cardio-title {
+    font-size: 10px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--red); padding: 10px 14px 6px;
+  }
+  .cardio-block.b .cardio-title { color: #a06bd0; }
+  .cardio-row {
+    display: flex; justify-content: space-between;
+    padding: 7px 14px; font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+  .cardio-row span:last-child { color: var(--muted); font-size: 12px; }
+
+  /* ── PROGRESS BAR ── */
+  .progress-wrap { padding: 10px 14px 2px; }
+  .progress-label { font-size: 11px; color: var(--muted); margin-bottom: 5px; display: flex; justify-content: space-between; }
+  .progress-label span { color: var(--text); font-weight: 600; }
+  .progress-track { background: var(--border); border-radius: 999px; height: 4px; overflow: hidden; }
+  .progress-fill { background: var(--red); height: 100%; border-radius: 999px; transition: width .3s; }
+  .b-screen .progress-fill { background: var(--purple); }
+
+  /* ── RESET BTN ── */
+  .reset-btn {
+    display: block; margin: 10px 14px 20px;
+    background: var(--border); border: none; border-radius: 8px;
+    color: var(--muted); font-size: 12px; font-weight: 600;
+    padding: 10px; width: calc(100% - 28px); cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: .05em; text-transform: uppercase;
+  }
+
+  /* ── INSTALL SCREEN ── */
+  #install-screen .screen-header { border-bottom-color: #f0a500; }
+  #install-screen .screen-header .eyebrow { color: #f0a500; }
+  .install-card {
+    margin: 14px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+  }
+  .install-step {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px; border-bottom: 1px solid var(--border);
+  }
+  .install-step:last-child { border-bottom: none; }
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #f0a500; color: #000; font-weight: 700; font-size: 13px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .step-text { flex: 1; }
+  .step-title { font-weight: 600; font-size: 14px; color: var(--text); }
+  .step-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .step-desc strong { color: var(--text); }
+  .install-note {
+    margin: 0 14px 20px; background: rgba(240,165,0,.08);
+    border: 1px solid rgba(240,165,0,.2); border-radius: 8px;
+    padding: 12px 14px; font-size: 12px; color: var(--muted); line-height: 1.6;
+  }
+  .install-note strong { color: #f0a500; }
+
+  /* ── WEEK SCREEN ── */
+  #week-screen .screen-header { border-bottom-color: #2a9d3a; }
+  #week-screen .screen-header .eyebrow { color: #2a9d3a; }
+  .week-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 6px; margin: 14px; }
+  .week-day {
+    background: var(--border); border-radius: 8px;
+    padding: 8px 4px; text-align: center; font-size: 10px; color: var(--muted);
+  }
+  .week-day .abbr { font-weight: 700; color: var(--text); display: block; margin-bottom: 3px; font-size: 11px; }
+  .week-day.a { background: var(--red); color: #fff; }
+  .week-day.a .abbr { color: #fff; }
+  .week-day.b { background: #2a1a2e; border: 1px solid var(--purple); color: #c9a0dc; }
+  .week-day.b .abbr { color: var(--purple-light); }
+  .week-day.rest { opacity: .4; }
+  .timing-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin: 0 14px 14px; }
+  .timing-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px; text-align: center;
+  }
+  .timing-val { font-family: 'Bebas Neue',sans-serif; font-size: 32px; color: var(--red); line-height: 1; }
+  .timing-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+  .tips-card { margin: 0 14px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .tip-row { display: flex; gap: 10px; padding: 11px 14px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .tip-row:last-child { border-bottom: none; }
+  .tip-icon { font-size: 16px; flex-shrink: 0; }
+  .tip-text { color: var(--muted); }
+  .tip-text strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<div id="screens">
+
+  <!-- ══ TREINO A ══ -->
+  <div class="screen active" id="a-screen">
+    <div class="screen-header">
+      <div class="eyebrow">Treino A · Peito + Costas + Core</div>
+      <h1>TREINO <span>A</span></h1>
+      <div class="sub">Rack → Banco/Halteres → Cabos</div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">Progresso <span id="a-prog-text">0 / 9</span></div>
+      <div class="progress-track"><div class="progress-fill" id="a-prog-fill" style="width:0%"></div></div>
+    </div>
+
+    <div class="block">
+      <div class="block-header"><span class="block-icon">🏋️</span><span class="block-name">Bloco 1 — Rack / Barra</span><span class="block-order">1º</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'a')"></div><div class="ex-info"><div class="ex-name">Supino Reto (barra)</div><div class="ex-tip">Movimento principal de peito</div></div><span class="badge badge-red">4 × 6–8</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'a')"></div><div class="ex-info"><div class="ex-name">Remada Curvada (barra)</div><div class="ex-tip">Tronco ~45° · mesmo rack</div></div><span class="badge badge-red">4 × 6–8</span></div>
+    </div>
+
+    <div class="block">
+      <div class="block-header"><span class="block-icon">🪑</span><span class="block-name">Bloco 2 — Banco + Halteres</span><span class="block-order">2º</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'a')"></div><div class="ex-info"><div class="ex-name">Supino Inclinado (halteres)</div><div class="ex-tip">Banco 30–45° · porção clavicular</div></div><span class="badge">3 × 8–10</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'a')"></div><div class="ex-info"><div class="ex-name">Remada Serrote (halter)</div><div class="ex-tip">Apoio no mesmo banco</div></div><span class="badge">3 × 10–12</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'a')"></div><div class="ex-info"><div class="ex-name">Crucifixo (halteres)</div><div class="ex-tip">Banco plano · alongamento máximo</div></div><span class="badge">3 × 12</span></div>
+    </div>
+
+    <div class="block">
+      <div class="block-header"><span class="block-icon">🔗</span><span class="block-name">Bloco 3 — Cabo (polia)</span><span class="block-order">3º</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'a')"></div><div class="ex-info"><div class="ex-name">Puxada Frontal (polia alta)</div><div class="ex-tip">Escápula retraída</div></div><span class="badge">3 × 8–10</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'a')"></div><div class="ex-info"><div class="ex-name">Crossover (polia alta)</div><div class="ex-tip">Finalizador de peito · squeeze</div></div><span class="badge">3 × 12–15</span></div>
+    </div>
+
+    <div class="block">
+      <div class="block-header"><span class="block-icon">⚙️</span><span class="block-name">Core — 5 min</span><span class="block-order">final</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'a')"></div><div class="ex-info"><div class="ex-name">Crunch no cabo</div></div><span class="badge">3 × 15</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'a')"></div><div class="ex-info"><div class="ex-name">Prancha isométrica</div></div><span class="badge">2 × 45s</span></div>
+    </div>
+
+    <div class="cardio-block">
+      <div class="cardio-title">⚡ Cardio Final — 10 min HIIT</div>
+      <div class="cardio-row"><span>Protocolo</span><span>20s tiro / 40s leve</span></div>
+      <div class="cardio-row"><span>Rodadas</span><span>× 10 (esteira / bike)</span></div>
+    </div>
+
+    <button class="reset-btn" onclick="resetScreen('a')">↺ Reiniciar Treino A</button>
+  </div>
+
+  <!-- ══ TREINO B ══ -->
+  <div class="screen b-screen" id="b-screen">
+    <div class="screen-header b">
+      <div class="eyebrow">Treino B · Pernas + Ombros + Braços</div>
+      <h1>TREINO <span>B</span></h1>
+      <div class="sub">Rack → Aparelhos → Cabos → Banco</div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">Progresso <span id="b-prog-text">0 / 9</span></div>
+      <div class="progress-track"><div class="progress-fill" id="b-prog-fill" style="width:0%"></div></div>
+    </div>
+
+    <div class="block">
+      <div class="block-header"><span class="block-icon">🏋️</span><span class="block-name b">Bloco 1 — Rack / Barra</span><span class="block-order">1º</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'b')"></div><div class="ex-info"><div class="ex-name">Agachamento Livre (barra)</div><div class="ex-tip">Profundidade total</div></div><span class="badge badge-purple">4 × 6–8</span></div>
+    </div>
+
+    <div class="block">
+      <div class="block-header"><span class="block-icon">🦵</span><span class="block-name b">Bloco 2 — Aparelhos de Perna</span><span class="block-order">2º</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'b')"></div><div class="ex-info"><div class="ex-name">Leg Press 45°</div><div class="ex-tip">Joelhos alinhados</div></div><span class="badge">3 × 10–12</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'b')"></div><div class="ex-info"><div class="ex-name">Cadeira Extensora</div><div class="ex-tip">Isometria 1s no topo</div></div><span class="badge">3 × 12–15</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'b')"></div><div class="ex-info"><div class="ex-name">Mesa Flexora</div><div class="ex-tip">Amplitude total</div></div><span class="badge">3 × 10–12</span></div>
+    </div>
+
+    <div class="block">
+      <div class="block-header"><span class="block-icon">🔗</span><span class="block-name b">Bloco 3 — Cabos (polia)</span><span class="block-order">3º</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'b')"></div><div class="ex-info"><div class="ex-name">Face Pull (polia alta)</div><div class="ex-tip">Rotação externa · manguito</div></div><span class="badge">3 × 15</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'b')"></div><div class="ex-info"><div class="ex-name">Elevação Lateral (polia baixa)</div><div class="ex-tip">Tensão constante</div></div><span class="badge">3 × 12–15</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'b')"></div><div class="ex-info"><div class="ex-name">Rosca Direta (polia baixa)</div><div class="ex-tip">Supinação total no topo</div></div><span class="badge">3 × 10–12</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'b')"></div><div class="ex-info"><div class="ex-name">Tríceps Corda (polia alta)</div><div class="ex-tip">Abre as mãos no fundo</div></div><span class="badge">3 × 12</span></div>
+    </div>
+
+    <div class="block">
+      <div class="block-header"><span class="block-icon">🪑</span><span class="block-name b">Bloco 4 — Banco + Halteres</span><span class="block-order">4º</span></div>
+      <div class="ex-row"><div class="ex-check" onclick="toggle(this,'b')"></div><div class="ex-info"><div class="ex-name">Desenvolvimento (halteres)</div><div class="ex-tip">Sentado · omoplatas neutras</div></div><span class="badge">3 × 8–10</span></div>
+    </div>
+
+    <div class="cardio-block b">
+      <div class="cardio-title">⚡ Cardio Final — 10 min Moderado</div>
+      <div class="cardio-row"><span>Intensidade</span><span>60–65% FCMáx</span></div>
+      <div class="cardio-row"><span>Motivo</span><span>Recuperação ativa pós-pernas</span></div>
+    </div>
+
+    <button class="reset-btn" onclick="resetScreen('b')">↺ Reiniciar Treino B</button>
+  </div>
+
+  <!-- ══ SEMANA ══ -->
+  <div class="screen" id="week-screen">
+    <div class="screen-header">
+      <div class="eyebrow">Planejamento</div>
+      <h1>SEMANA <span style="color:#2a9d3a">5x</span></h1>
+      <div class="sub">A–B–A–B–A com descanso no fim de semana</div>
+    </div>
+
+    <div class="week-grid">
+      <div class="week-day a"><span class="abbr">SEG</span>A</div>
+      <div class="week-day b"><span class="abbr">TER</span>B</div>
+      <div class="week-day a"><span class="abbr">QUA</span>A</div>
+      <div class="week-day b"><span class="abbr">QUI</span>B</div>
+      <div class="week-day a"><span class="abbr">SEX</span>A</div>
+      <div class="week-day rest"><span class="abbr">SAB</span>—</div>
+      <div class="week-day rest"><span class="abbr">DOM</span>—</div>
+    </div>
+
+    <div class="timing-grid">
+      <div class="timing-card"><div class="timing-val">5</div><div class="timing-label">min aquecimento</div></div>
+      <div class="timing-card"><div class="timing-val">40</div><div class="timing-label">min musculação</div></div>
+      <div class="timing-card"><div class="timing-val">5</div><div class="timing-label">min core</div></div>
+      <div class="timing-card"><div class="timing-val">10</div><div class="timing-label">min cardio</div></div>
+    </div>
+
+    <div class="tips-card">
+      <div class="tip-row"><span class="tip-icon">🏋️</span><div class="tip-text"><strong>Rack primeiro</strong> — equipamento mais disputado, prioridade máxima ao chegar</div></div>
+      <div class="tip-row"><span class="tip-icon">🔗</span><div class="tip-text"><strong>Cabos no B:</strong> rosca e tríceps na mesma polia — só troca o acessório sem sair do lugar</div></div>
+      <div class="tip-row"><span class="tip-icon">⏱</span><div class="tip-text"><strong>Descanso:</strong> 75–90s compostos · 45–60s isolados</div></div>
+      <div class="tip-row"><span class="tip-icon">🔄</span><div class="tip-text"><strong>Bloco ocupado?</strong> Pule pro próximo e volte — são independentes</div></div>
+      <div class="tip-row"><span class="tip-icon">💪</span><div class="tip-text"><strong>Pernas ficando para trás?</strong> Troque para A–B–B–A–B na semana</div></div>
+    </div>
+  </div>
+
+  <!-- ══ INSTALAR ══ -->
+  <div class="screen" id="install-screen">
+    <div class="screen-header">
+      <div class="eyebrow">Adicionar à tela inicial</div>
+      <h1>INSTALAR <span style="color:#f0a500">APP</span></h1>
+      <div class="sub">Funciona offline · abre em tela cheia</div>
+    </div>
+
+    <div class="install-card">
+      <div class="install-step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <div class="step-title">Abra no Safari</div>
+          <div class="step-desc">Precisa ser o <strong>Safari</strong> — Chrome e outros não suportam essa função</div>
+        </div>
+      </div>
+      <div class="install-step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <div class="step-title">Toque em Compartilhar</div>
+          <div class="step-desc">Ícone de <strong>quadrado com seta ↑</strong> na barra inferior do Safari</div>
+        </div>
+      </div>
+      <div class="install-step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <div class="step-title">Adicionar à Tela de Início</div>
+          <div class="step-desc">Role o menu e toque em <strong>"Adicionar à Tela de Início"</strong></div>
+        </div>
+      </div>
+      <div class="install-step">
+        <div class="step-num">4</div>
+        <div class="step-text">
+          <div class="step-title">Confirme o nome</div>
+          <div class="step-desc">Deixe <strong>"Treino AB"</strong> e toque em Adicionar — pronto!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="install-note">
+      <strong>Após instalar:</strong> o app abre em tela cheia sem barra do Safari, funciona sem internet e seu progresso de séries fica salvo durante o treino. Toque em "↺ Reiniciar" quando terminar o dia.
+    </div>
+  </div>
+
+</div><!-- /screens -->
+
+<!-- TAB BAR -->
+<div id="tab-bar">
+  <div class="tab active" id="tab-a" onclick="showTab('a')">
+    <span class="tab-icon">🔴</span>
+    Treino A
+  </div>
+  <div class="tab b-tab" id="tab-b" onclick="showTab('b')">
+    <span class="tab-icon">🟣</span>
+    Treino B
+  </div>
+  <div class="tab" id="tab-week" onclick="showTab('week')">
+    <span class="tab-icon">📅</span>
+    Semana
+  </div>
+  <div class="tab" id="tab-install" onclick="showTab('install')">
+    <span class="tab-icon">📲</span>
+    Instalar
+  </div>
+</div>
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(name + '-screen').classList.add('active');
+    document.getElementById('tab-' + name).classList.add('active');
+  }
+
+  function toggle(el, screen) {
+    el.classList.toggle('done');
+    updateProgress(screen);
+  }
+
+  function updateProgress(screen) {
+    const screenEl = document.getElementById(screen + '-screen');
+    const checks = screenEl.querySelectorAll('.ex-check');
+    const done = screenEl.querySelectorAll('.ex-check.done').length;
+    const total = checks.length;
+    const pct = Math.round((done / total) * 100);
+    document.getElementById(screen + '-prog-fill').style.width = pct + '%';
+    document.getElementById(screen + '-prog-text').textContent = done + ' / ' + total;
+  }
+
+  function resetScreen(screen) {
+    const screenEl = document.getElementById(screen + '-screen');
+    screenEl.querySelectorAll('.ex-check.done').forEach(el => el.classList.remove('done'));
+    updateProgress(screen);
+    screenEl.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
