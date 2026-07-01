@@ -23,8 +23,6 @@
 }
 html,body{height:100%}
 body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.5;overflow:hidden;display:flex;flex-direction:column}
-
-/* TAB BAR */
 #tab-bar{display:flex;background:#111;border-top:1px solid var(--border);padding-bottom:var(--safe-bottom);flex-shrink:0;order:2}
 .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 0 6px;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;transition:color .15s;gap:3px}
 .tab .ti{font-size:18px;line-height:1}
@@ -33,13 +31,9 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 .tab.active.ta2{color:var(--green)}
 .tab.active.tb2{color:var(--orange)}
 .tab.active.week-tab{color:#888}
-
-/* SCREENS */
 #screens{flex:1;overflow:hidden;order:1;position:relative}
 .screen{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none;padding-top:calc(var(--safe-top))}
 .screen.active{display:block}
-
-/* HEADER */
 .screen-header{padding:16px 16px 10px;border-bottom:2px solid var(--red);background:var(--dark);position:sticky;top:0;z-index:10}
 .screen-header.hb1{border-bottom-color:var(--purple)}
 .screen-header.ha2{border-bottom-color:var(--green)}
@@ -50,25 +44,17 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 .screen-header h1 span{color:var(--red)}
 .hb1 h1 span{color:#c9a0dc}.ha2 h1 span{color:#4ec95e}.hb2 h1 span{color:#f0a040}
 .screen-header .sub{font-size:11px;color:var(--muted);margin-top:2px}
-
-/* EMPHASIS TAG */
 .emphasis-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-top:4px}
 .etag-red{background:var(--red-dim);color:#fbb}
 .etag-purple{background:var(--purple-dim);color:var(--purple-light)}
 .etag-green{background:#0d3d15;color:#4ec95e}
 .etag-orange{background:var(--orange-dim);color:#f0c080}
-
-/* PROGRESS */
 .progress-wrap{padding:8px 12px 2px}
 .progress-label{font-size:11px;color:var(--muted);margin-bottom:4px;display:flex;justify-content:space-between}
 .progress-label span{color:var(--text);font-weight:600}
 .progress-track{background:var(--border);border-radius:999px;height:4px;overflow:hidden}
 .progress-fill{background:var(--red);height:100%;border-radius:999px;transition:width .3s}
-.hb1-fill{background:var(--purple)}
-.ha2-fill{background:var(--green)}
-.hb2-fill{background:var(--orange)}
-
-/* BLOCK */
+.hb1-fill{background:var(--purple)}.ha2-fill{background:var(--green)}.hb2-fill{background:var(--orange)}
 .block{margin:8px 12px;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--card)}
 .block-header{display:flex;align-items:center;gap:8px;padding:7px 13px 5px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--border)}
 .block-icon{font-size:13px}
@@ -81,8 +67,6 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 .eb-green{background:#0d3d15;color:#4ec95e}
 .eb-orange{background:var(--orange-dim);color:#f0c080}
 .eb-gray{background:#333;color:#999}
-
-/* EXERCISE */
 .ex-row{display:flex;align-items:center;padding:9px 12px;border-bottom:1px solid var(--border);gap:9px;transition:background .15s}
 .ex-row:last-child{border-bottom:none}
 .ex-row.checked{background:rgba(255,255,255,.03)}
@@ -108,23 +92,13 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 .carga-input{background:var(--black);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:12px;font-weight:600;width:48px;padding:2px 5px;text-align:center;font-family:'Inter',sans-serif;-webkit-appearance:none;outline:none}
 .carga-input:focus{border-color:var(--red)}
 .carga-unit{font-size:10px;color:var(--muted)}
-
-/* CARDIO */
 .cardio-block{margin:8px 12px 4px;border-radius:10px;overflow:hidden;border:1px solid var(--border);border-top:2px solid var(--red);background:#111}
-.cardio-block.cb1{border-top-color:var(--purple)}
-.cardio-block.ca2{border-top-color:var(--green)}
-.cardio-block.cb2{border-top-color:var(--orange)}
+.cardio-block.cb1{border-top-color:var(--purple)}.cardio-block.ca2{border-top-color:var(--green)}.cardio-block.cb2{border-top-color:var(--orange)}
 .cardio-title{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--red);padding:8px 13px 4px}
-.cardio-block.cb1 .cardio-title{color:#a06bd0}
-.cardio-block.ca2 .cardio-title{color:var(--green)}
-.cardio-block.cb2 .cardio-title{color:var(--orange)}
+.cardio-block.cb1 .cardio-title{color:#a06bd0}.cardio-block.ca2 .cardio-title{color:var(--green)}.cardio-block.cb2 .cardio-title{color:var(--orange)}
 .cardio-row{display:flex;justify-content:space-between;padding:5px 13px;font-size:12px;border-top:1px solid var(--border)}
 .cardio-row span:last-child{color:var(--muted);font-size:11px}
-
-/* RESET */
 .reset-btn{display:block;margin:8px 12px 18px;background:var(--border);border:none;border-radius:8px;color:var(--muted);font-size:12px;font-weight:600;padding:9px;width:calc(100% - 24px);cursor:pointer;-webkit-tap-highlight-color:transparent;letter-spacing:.05em;text-transform:uppercase}
-
-/* WEEK */
 .week-section{margin:10px 12px 0}
 .week-title{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.06em;color:var(--text);margin-bottom:6px}
 .week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:10px}
@@ -154,8 +128,6 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 .tip-icon{font-size:14px;flex-shrink:0;padding-top:1px}
 .tip-text{color:var(--muted);line-height:1.5}
 .tip-text strong{color:var(--text)}
-
-/* HIST */
 .hist-empty{text-align:center;color:var(--muted);font-size:13px;padding:50px 20px}
 .hist-day{margin:8px 12px;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
 .hist-day-header{padding:9px 13px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
@@ -186,26 +158,26 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🏋️</span><span class="block-name">Rack / Barra</span><span class="block-order">1º</span><span class="emphasis-badge eb-red">ênfase</span></div>
-    <div class="ex-row" id="a1-0"><div class="ex-check" onclick="toggle('a1-0','a1')"></div><div class="ex-info"><div class="ex-name">Supino Reto (barra)</div><div class="ex-tip">Movimento base — máxima carga</div></div><div class="ex-right"><span class="badge badge-red">4 × 6–8</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-0',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="a1-1"><div class="ex-check" onclick="toggle('a1-1','a1')"></div><div class="ex-info"><div class="ex-name">Remada Curvada (barra)</div><div class="ex-tip">Costas manutenção · mesmo rack</div></div><div class="ex-right"><span class="badge badge-maint">3 × 8–10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-1',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a1-0"><div class="ex-check" onclick="toggle('a1-0','a1')"></div><div class="ex-info"><div class="ex-name">Supino Reto (barra)</div><div class="ex-tip">Peito · movimento base, máxima carga</div></div><div class="ex-right"><span class="badge badge-red">4 × 6–8</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-0',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a1-1"><div class="ex-check" onclick="toggle('a1-1','a1')"></div><div class="ex-info"><div class="ex-name">Puxada Frontal (barra)</div><div class="ex-tip">Costas manutenção · escápula retraída</div></div><div class="ex-right"><span class="badge badge-maint">3 × 10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-1',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🪑</span><span class="block-name">Banco + Halteres</span><span class="block-order">2º</span><span class="emphasis-badge eb-red">ênfase</span></div>
-    <div class="ex-row" id="a1-2"><div class="ex-check" onclick="toggle('a1-2','a1')"></div><div class="ex-info"><div class="ex-name">Supino Inclinado (halteres)</div><div class="ex-tip">Porção clavicular · banco 30–45°</div></div><div class="ex-right"><span class="badge badge-red">4 × 8–10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-2',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="a1-3"><div class="ex-check" onclick="toggle('a1-3','a1')"></div><div class="ex-info"><div class="ex-name">Crucifixo (halteres)</div><div class="ex-tip">Peito · alongamento máximo</div></div><div class="ex-right"><span class="badge badge-red">3 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-3',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a1-2"><div class="ex-check" onclick="toggle('a1-2','a1')"></div><div class="ex-info"><div class="ex-name">Supino Inclinado (halteres)</div><div class="ex-tip">Peito · porção clavicular, banco 30–45°</div></div><div class="ex-right"><span class="badge badge-red">4 × 8–10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-2',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a1-3"><div class="ex-check" onclick="toggle('a1-3','a1')"></div><div class="ex-info"><div class="ex-name">Crucifixo (halteres)</div><div class="ex-tip">Peito · banco plano, alongamento máximo</div></div><div class="ex-right"><span class="badge badge-red">3 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-3',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="block">
-    <div class="block-header"><span class="block-icon">🔗</span><span class="block-name">Cabos (polia)</span><span class="block-order">3º</span></div>
-    <div class="ex-row" id="a1-4"><div class="ex-check" onclick="toggle('a1-4','a1')"></div><div class="ex-info"><div class="ex-name">Puxada Frontal (polia alta)</div><div class="ex-tip">Costas manutenção · escápula retraída</div></div><div class="ex-right"><span class="badge badge-maint">3 × 10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-4',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="a1-5"><div class="ex-check" onclick="toggle('a1-5','a1')"></div><div class="ex-info"><div class="ex-name">Crossover (polia alta)</div><div class="ex-tip">Peito · finalizador com squeeze</div></div><div class="ex-right"><span class="badge badge-red">3 × 12–15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-5',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="block-header"><span class="block-icon">🔗</span><span class="block-name">Cabos (polia)</span><span class="block-order">3º</span><span class="emphasis-badge eb-red">ênfase</span></div>
+    <div class="ex-row" id="a1-4"><div class="ex-check" onclick="toggle('a1-4','a1')"></div><div class="ex-info"><div class="ex-name">Crossover (polia alta)</div><div class="ex-tip">Peito · squeeze máximo na contração</div></div><div class="ex-right"><span class="badge badge-red">3 × 12–15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-4',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a1-5"><div class="ex-check" onclick="toggle('a1-5','a1')"></div><div class="ex-info"><div class="ex-name">Remada Sentada (polia baixa)</div><div class="ex-tip">Costas manutenção · tronco ereto</div></div><div class="ex-right"><span class="badge badge-maint">2 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-5',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="block">
     <div class="block-header"><span class="block-icon">⚙️</span><span class="block-name">Core — 5 min</span><span class="block-order">final</span></div>
-    <div class="ex-row" id="a1-6"><div class="ex-check" onclick="toggle('a1-6','a1')"></div><div class="ex-info"><div class="ex-name">Crunch no cabo</div></div><div class="ex-right"><span class="badge">3 × 15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-6',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="a1-7"><div class="ex-check" onclick="toggle('a1-7','a1')"></div><div class="ex-info"><div class="ex-name">Prancha isométrica</div></div><div class="ex-right"><span class="badge">2 × 45s</span></div></div>
+    <div class="ex-row" id="a1-6"><div class="ex-check" onclick="toggle('a1-6','a1')"></div><div class="ex-info"><div class="ex-name">Crunch no cabo</div><div class="ex-tip">Abdômen superior</div></div><div class="ex-right"><span class="badge">3 × 15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a1-6',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a1-7"><div class="ex-check" onclick="toggle('a1-7','a1')"></div><div class="ex-info"><div class="ex-name">Prancha isométrica</div><div class="ex-tip">Core estabilizador</div></div><div class="ex-right"><span class="badge">2 × 45s</span></div></div>
   </div>
 
   <div class="cardio-block">
@@ -215,12 +187,12 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
   <button class="reset-btn" onclick="resetScreen('a1')">↺ Reiniciar A1</button>
 </div>
 
-<!-- ══ B1: ÊNFASE QUADRÍCEPS + OMBROS ══ -->
+<!-- ══ B1: ÊNFASE QUAD + OMBROS ══ -->
 <div class="screen done-purple" id="b1-screen">
   <div class="screen-header hb1">
     <div class="eyebrow">Treino B1 · Pernas + Ombros + Braços</div>
     <h1>ÊNFASE <span>QUAD + OMBROS</span></h1>
-    <div class="sub">Rack → Aparelhos → Cabos → Banco</div>
+    <div class="sub">Rack → Aparelhos → Banco → Cabos</div>
     <span class="emphasis-tag etag-purple">🎯 Quad e ombros prioritários · Posterior leve</span>
   </div>
   <div class="progress-wrap">
@@ -230,27 +202,27 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🏋️</span><span class="block-name bn-purple">Rack / Barra</span><span class="block-order">1º</span><span class="emphasis-badge eb-purple">ênfase</span></div>
-    <div class="ex-row" id="b1-0"><div class="ex-check" onclick="toggle('b1-0','b1')"></div><div class="ex-info"><div class="ex-name">Agachamento Livre (barra)</div><div class="ex-tip">Máxima profundidade · movimento base</div></div><div class="ex-right"><span class="badge badge-purple">4 × 6–8</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-0',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b1-0"><div class="ex-check" onclick="toggle('b1-0','b1')"></div><div class="ex-info"><div class="ex-name">Agachamento Livre (barra)</div><div class="ex-tip">Quad · profundidade total, joelhos alinhados</div></div><div class="ex-right"><span class="badge badge-purple">4 × 6–8</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-0',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🦵</span><span class="block-name bn-purple">Aparelhos de Perna</span><span class="block-order">2º</span><span class="emphasis-badge eb-purple">ênfase</span></div>
-    <div class="ex-row" id="b1-1"><div class="ex-check" onclick="toggle('b1-1','b1')"></div><div class="ex-info"><div class="ex-name">Leg Press 45°</div><div class="ex-tip">Quad em destaque · pés baixos na plataforma</div></div><div class="ex-right"><span class="badge badge-purple">4 × 10–12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-1',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="b1-2"><div class="ex-check" onclick="toggle('b1-2','b1')"></div><div class="ex-info"><div class="ex-name">Mesa Flexora</div><div class="ex-tip">Posterior · manutenção</div></div><div class="ex-right"><span class="badge badge-maint">2 × 10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-2',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b1-1"><div class="ex-check" onclick="toggle('b1-1','b1')"></div><div class="ex-info"><div class="ex-name">Leg Press 45° (pés baixos)</div><div class="ex-tip">Quad · pés baixos na plataforma = mais quadríceps</div></div><div class="ex-right"><span class="badge badge-purple">4 × 10–12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-1',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b1-2"><div class="ex-check" onclick="toggle('b1-2','b1')"></div><div class="ex-info"><div class="ex-name">Mesa Flexora</div><div class="ex-tip">Posterior manutenção</div></div><div class="ex-right"><span class="badge badge-maint">2 × 10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-2',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🪑</span><span class="block-name bn-purple">Banco + Halteres</span><span class="block-order">3º</span><span class="emphasis-badge eb-purple">ênfase</span></div>
-    <div class="ex-row" id="b1-3"><div class="ex-check" onclick="toggle('b1-3','b1')"></div><div class="ex-info"><div class="ex-name">Desenvolvimento (halteres)</div><div class="ex-tip">Ombros · movimento base sentado</div></div><div class="ex-right"><span class="badge badge-purple">4 × 8–10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-3',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b1-3"><div class="ex-check" onclick="toggle('b1-3','b1')"></div><div class="ex-info"><div class="ex-name">Desenvolvimento (halteres)</div><div class="ex-tip">Ombros · sentado, omoplatas neutras</div></div><div class="ex-right"><span class="badge badge-purple">4 × 8–10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-3',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🔗</span><span class="block-name bn-purple">Cabos (polia)</span><span class="block-order">4º</span></div>
-    <div class="ex-row" id="b1-4"><div class="ex-check" onclick="toggle('b1-4','b1')"></div><div class="ex-info"><div class="ex-name">Elevação Lateral (polia baixa)</div><div class="ex-tip">Ombros · deltóide lateral</div></div><div class="ex-right"><span class="badge badge-purple">3 × 12–15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-4',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="b1-5"><div class="ex-check" onclick="toggle('b1-5','b1')"></div><div class="ex-info"><div class="ex-name">Face Pull (polia alta)</div><div class="ex-tip">Ombros · rotação externa</div></div><div class="ex-right"><span class="badge badge-purple">3 × 15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-5',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="b1-6"><div class="ex-check" onclick="toggle('b1-6','b1')"></div><div class="ex-info"><div class="ex-name">Rosca Direta (polia baixa)</div><div class="ex-tip">Bíceps</div></div><div class="ex-right"><span class="badge">3 × 10–12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-6',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b1-4"><div class="ex-check" onclick="toggle('b1-4','b1')"></div><div class="ex-info"><div class="ex-name">Elevação Lateral (polia baixa)</div><div class="ex-tip">Ombros · deltóide lateral, tensão constante</div></div><div class="ex-right"><span class="badge badge-purple">3 × 12–15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-4',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b1-5"><div class="ex-check" onclick="toggle('b1-5','b1')"></div><div class="ex-info"><div class="ex-name">Elevação Frontal (polia baixa)</div><div class="ex-tip">Ombros · deltóide anterior</div></div><div class="ex-right"><span class="badge badge-purple">3 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-5',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b1-6"><div class="ex-check" onclick="toggle('b1-6','b1')"></div><div class="ex-info"><div class="ex-name">Rosca Direta (polia baixa)</div><div class="ex-tip">Bíceps · supinação total no topo</div></div><div class="ex-right"><span class="badge">3 × 10–12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-6',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
     <div class="ex-row" id="b1-7"><div class="ex-check" onclick="toggle('b1-7','b1')"></div><div class="ex-info"><div class="ex-name">Tríceps Corda (polia alta)</div><div class="ex-tip">Tríceps · abre as mãos no fundo</div></div><div class="ex-right"><span class="badge">3 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-7',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="b1-8"><div class="ex-check" onclick="toggle('b1-8','b1')"></div><div class="ex-info"><div class="ex-name">Elevação Frontal (polia baixa)</div><div class="ex-tip">Deltóide anterior · ênfase ombros</div></div><div class="ex-right"><span class="badge badge-purple">3 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-8',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b1-8"><div class="ex-check" onclick="toggle('b1-8','b1')"></div><div class="ex-info"><div class="ex-name">Face Pull (polia alta)</div><div class="ex-tip">Ombros · rotação externa, manguito rotador</div></div><div class="ex-right"><span class="badge badge-purple">3 × 15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b1-8',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="cardio-block cb1">
@@ -263,7 +235,7 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 <!-- ══ A2: ÊNFASE DORSAL ══ -->
 <div class="screen done-green" id="a2-screen">
   <div class="screen-header ha2">
-    <div class="eyebrow">Treino A2 · Peito + Costas</div>
+    <div class="eyebrow">Treino A2 · Costas + Peito</div>
     <h1>ÊNFASE <span>DORSAL</span></h1>
     <div class="sub">Rack → Banco/Halteres → Cabos</div>
     <span class="emphasis-tag etag-green">🎯 Costas prioritárias · Peito manutenção</span>
@@ -275,26 +247,26 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🏋️</span><span class="block-name bn-green">Rack / Barra</span><span class="block-order">1º</span><span class="emphasis-badge eb-green">ênfase</span></div>
-    <div class="ex-row" id="a2-0"><div class="ex-check" onclick="toggle('a2-0','a2')"></div><div class="ex-info"><div class="ex-name">Remada Curvada (barra)</div><div class="ex-tip">Dorsal · tronco ~45°, máxima amplitude</div></div><div class="ex-right"><span class="badge badge-green">4 × 6–8</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-0',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="a2-1"><div class="ex-check" onclick="toggle('a2-1','a2')"></div><div class="ex-info"><div class="ex-name">Supino Reto (barra)</div><div class="ex-tip">Peito manutenção · mesmo rack</div></div><div class="ex-right"><span class="badge badge-maint">3 × 8</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-1',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a2-0"><div class="ex-check" onclick="toggle('a2-0','a2')"></div><div class="ex-info"><div class="ex-name">Barra Fixa (pegada pronada)</div><div class="ex-tip">Costas · movimento base, amplitude máxima</div></div><div class="ex-right"><span class="badge badge-green">4 × 6–8</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-0',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a2-1"><div class="ex-check" onclick="toggle('a2-1','a2')"></div><div class="ex-info"><div class="ex-name">Supino Inclinado (halteres)</div><div class="ex-tip">Peito manutenção · porção clavicular</div></div><div class="ex-right"><span class="badge badge-maint">2 × 10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-1',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🪑</span><span class="block-name bn-green">Banco + Halteres</span><span class="block-order">2º</span><span class="emphasis-badge eb-green">ênfase</span></div>
-    <div class="ex-row" id="a2-2"><div class="ex-check" onclick="toggle('a2-2','a2')"></div><div class="ex-info"><div class="ex-name">Remada Serrote (halter)</div><div class="ex-tip">Dorsal · amplitude total, cotovelo alto</div></div><div class="ex-right"><span class="badge badge-green">4 × 8–10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-2',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="a2-3"><div class="ex-check" onclick="toggle('a2-3','a2')"></div><div class="ex-info"><div class="ex-name">Crucifixo (halteres)</div><div class="ex-tip">Peito manutenção · banco plano</div></div><div class="ex-right"><span class="badge badge-maint">2 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-3',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a2-2"><div class="ex-check" onclick="toggle('a2-2','a2')"></div><div class="ex-info"><div class="ex-name">Remada Curvada (barra)</div><div class="ex-tip">Costas · tronco ~45°, dorsal médio</div></div><div class="ex-right"><span class="badge badge-green">4 × 6–8</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-2',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a2-3"><div class="ex-check" onclick="toggle('a2-3','a2')"></div><div class="ex-info"><div class="ex-name">Remada Serrote (halter)</div><div class="ex-tip">Costas · apoio no banco, cotovelo alto</div></div><div class="ex-right"><span class="badge badge-green">3 × 10–12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-3',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🔗</span><span class="block-name bn-green">Cabos (polia)</span><span class="block-order">3º</span><span class="emphasis-badge eb-green">ênfase</span></div>
-    <div class="ex-row" id="a2-4"><div class="ex-check" onclick="toggle('a2-4','a2')"></div><div class="ex-info"><div class="ex-name">Puxada Frontal (polia alta)</div><div class="ex-tip">Dorsal · escápula retraída</div></div><div class="ex-right"><span class="badge badge-green">4 × 6–8</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-4',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="a2-5"><div class="ex-check" onclick="toggle('a2-5','a2')"></div><div class="ex-info"><div class="ex-name">Pullover (polia alta)</div><div class="ex-tip">Dorsal · alongamento máximo</div></div><div class="ex-right"><span class="badge badge-green">3 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-5',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="a2-6"><div class="ex-check" onclick="toggle('a2-6','a2')"></div><div class="ex-info"><div class="ex-name">Crossover (polia alta)</div><div class="ex-tip">Peito manutenção · finalizador</div></div><div class="ex-right"><span class="badge badge-maint">2 × 15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-6',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a2-4"><div class="ex-check" onclick="toggle('a2-4','a2')"></div><div class="ex-info"><div class="ex-name">Pullover (polia alta)</div><div class="ex-tip">Costas · grande dorsal, alongamento máximo</div></div><div class="ex-right"><span class="badge badge-green">3 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-4',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a2-5"><div class="ex-check" onclick="toggle('a2-5','a2')"></div><div class="ex-info"><div class="ex-name">Remada Unilateral (polia baixa)</div><div class="ex-tip">Costas · foco no dorsal médio e inferior</div></div><div class="ex-right"><span class="badge badge-green">3 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-5',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="a2-6"><div class="ex-check" onclick="toggle('a2-6','a2')"></div><div class="ex-info"><div class="ex-name">Voador (polia alta)</div><div class="ex-tip">Peito manutenção · amplitude controlada</div></div><div class="ex-right"><span class="badge badge-maint">2 × 15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('a2-6',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="block">
     <div class="block-header"><span class="block-icon">⚙️</span><span class="block-name bn-green">Core — 5 min</span><span class="block-order">final</span></div>
-    <div class="ex-row" id="a2-7"><div class="ex-check" onclick="toggle('a2-7','a2')"></div><div class="ex-info"><div class="ex-name">Leg Raise (barra)</div><div class="ex-tip">Core inferior</div></div><div class="ex-right"><span class="badge">3 × 12</span></div></div>
+    <div class="ex-row" id="a2-7"><div class="ex-check" onclick="toggle('a2-7','a2')"></div><div class="ex-info"><div class="ex-name">Leg Raise (suspenso na barra)</div><div class="ex-tip">Core inferior · joelhos estendidos</div></div><div class="ex-right"><span class="badge">3 × 12</span></div></div>
   </div>
 
   <div class="cardio-block ca2">
@@ -307,7 +279,7 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 <!-- ══ B2: ÊNFASE POSTERIOR + BRAÇOS ══ -->
 <div class="screen done-orange" id="b2-screen">
   <div class="screen-header hb2">
-    <div class="eyebrow">Treino B2 · Pernas + Ombros + Braços</div>
+    <div class="eyebrow">Treino B2 · Pernas + Braços + Ombros</div>
     <h1>ÊNFASE <span>POSTERIOR + BRAÇOS</span></h1>
     <div class="sub">Rack → Aparelhos → Cabos</div>
     <span class="emphasis-tag etag-orange">🎯 Posterior e braços prioritários · Quad leve</span>
@@ -324,18 +296,18 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🦵</span><span class="block-name bn-orange">Aparelhos de Perna</span><span class="block-order">2º</span></div>
-    <div class="ex-row" id="b2-1"><div class="ex-check" onclick="toggle('b2-1','b2')"></div><div class="ex-info"><div class="ex-name">Leg Press 45°</div><div class="ex-tip">Quad manutenção · pés na largura dos ombros</div></div><div class="ex-right"><span class="badge badge-maint">2 × 10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-1',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b2-1"><div class="ex-check" onclick="toggle('b2-1','b2')"></div><div class="ex-info"><div class="ex-name">Leg Press 45° (pés altos)</div><div class="ex-tip">Quad manutenção · pés altos = mais glúteo e posterior</div></div><div class="ex-right"><span class="badge badge-maint">2 × 10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-1',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
     <div class="ex-row" id="b2-2"><div class="ex-check" onclick="toggle('b2-2','b2')"></div><div class="ex-info"><div class="ex-name">Mesa Flexora</div><div class="ex-tip">Posterior · isquiotibiais em destaque</div></div><div class="ex-right"><span class="badge badge-orange">4 × 10–12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-2',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="block">
     <div class="block-header"><span class="block-icon">🔗</span><span class="block-name bn-orange">Cabos (polia)</span><span class="block-order">3º</span><span class="emphasis-badge eb-orange">ênfase</span></div>
-    <div class="ex-row" id="b2-3"><div class="ex-check" onclick="toggle('b2-3','b2')"></div><div class="ex-info"><div class="ex-name">Rosca Direta (polia baixa)</div><div class="ex-tip">Bíceps · supinação total no topo</div></div><div class="ex-right"><span class="badge badge-orange">4 × 8–10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-3',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b2-3"><div class="ex-check" onclick="toggle('b2-3','b2')"></div><div class="ex-info"><div class="ex-name">Rosca Scott (barra EZ)</div><div class="ex-tip">Bíceps · cotovelos fixos, isolamento total</div></div><div class="ex-right"><span class="badge badge-orange">4 × 8–10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-3',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
     <div class="ex-row" id="b2-4"><div class="ex-check" onclick="toggle('b2-4','b2')"></div><div class="ex-info"><div class="ex-name">Rosca Martelo (halteres)</div><div class="ex-tip">Bíceps longo + braquial</div></div><div class="ex-right"><span class="badge badge-orange">3 × 10–12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-4',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="b2-5"><div class="ex-check" onclick="toggle('b2-5','b2')"></div><div class="ex-info"><div class="ex-name">Tríceps Corda (polia alta)</div><div class="ex-tip">Tríceps · abre as mãos no fundo</div></div><div class="ex-right"><span class="badge badge-orange">4 × 10–12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-5',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="b2-6"><div class="ex-check" onclick="toggle('b2-6','b2')"></div><div class="ex-info"><div class="ex-name">Tríceps Testa (barra EZ)</div><div class="ex-tip">Tríceps · cotovelos fixos apontados ao teto</div></div><div class="ex-right"><span class="badge badge-orange">3 × 10–12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-6',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b2-5"><div class="ex-check" onclick="toggle('b2-5','b2')"></div><div class="ex-info"><div class="ex-name">Tríceps Testa (barra EZ)</div><div class="ex-tip">Tríceps · cotovelos fixos apontados ao teto</div></div><div class="ex-right"><span class="badge badge-orange">4 × 8–10</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-5',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b2-6"><div class="ex-check" onclick="toggle('b2-6','b2')"></div><div class="ex-info"><div class="ex-name">Mergulho no Banco (tríceps)</div><div class="ex-tip">Tríceps · cotovelos para trás, sem balançar</div></div><div class="ex-right"><span class="badge badge-orange">3 × 12–15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-6',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
     <div class="ex-row" id="b2-7"><div class="ex-check" onclick="toggle('b2-7','b2')"></div><div class="ex-info"><div class="ex-name">Face Pull (polia alta)</div><div class="ex-tip">Ombros manutenção · rotação externa</div></div><div class="ex-right"><span class="badge badge-maint">2 × 15</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-7',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
-    <div class="ex-row" id="b2-8"><div class="ex-check" onclick="toggle('b2-8','b2')"></div><div class="ex-info"><div class="ex-name">Elevação Lateral (polia baixa)</div><div class="ex-tip">Ombros manutenção</div></div><div class="ex-right"><span class="badge badge-maint">2 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-8',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
+    <div class="ex-row" id="b2-8"><div class="ex-check" onclick="toggle('b2-8','b2')"></div><div class="ex-info"><div class="ex-name">Elevação Lateral (halteres)</div><div class="ex-tip">Ombros manutenção · controle total</div></div><div class="ex-right"><span class="badge badge-maint">2 × 12</span><div class="carga-wrap"><span class="carga-label">Carga</span><input class="carga-input" type="number" placeholder="—" onchange="saveCarga('b2-8',this.value)" inputmode="decimal"><span class="carga-unit">kg</span></div></div></div>
   </div>
 
   <div class="cardio-block cb2">
@@ -352,9 +324,8 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
     <h1>SEMANA <span style="color:#888">5x</span></h1>
     <div class="sub">A1 → B1 → A2 → B2 → A1</div>
   </div>
-
   <div class="week-section">
-    <div class="week-title">Semana Padrão</div>
+    <div class="week-title">Semana 1</div>
     <div class="week-grid">
       <div class="week-day wa1"><span class="abbr">SEG</span>A1</div>
       <div class="week-day wb1"><span class="abbr">TER</span>B1</div>
@@ -364,7 +335,7 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
       <div class="week-day wrest"><span class="abbr">SAB</span>—</div>
       <div class="week-day wrest"><span class="abbr">DOM</span>—</div>
     </div>
-    <div class="week-title">Semana Seguinte</div>
+    <div class="week-title">Semana 2</div>
     <div class="week-grid">
       <div class="week-day wb1"><span class="abbr">SEG</span>B1</div>
       <div class="week-day wa2"><span class="abbr">TER</span>A2</div>
@@ -375,26 +346,23 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
       <div class="week-day wrest"><span class="abbr">DOM</span>—</div>
     </div>
   </div>
-
   <div class="legend-grid">
     <div class="legend-card lc-a1"><div class="lc-title">A1</div><div class="lc-emph" style="color:#e03030">🎯 Peito</div><div class="lc-maint">Costas: manutenção</div></div>
     <div class="legend-card lc-b1"><div class="lc-title">B1</div><div class="lc-emph" style="color:#a06bd0">🎯 Quad + Ombros</div><div class="lc-maint">Posterior: manutenção</div></div>
     <div class="legend-card lc-a2"><div class="lc-title">A2</div><div class="lc-emph" style="color:#4ec95e">🎯 Dorsal</div><div class="lc-maint">Peito: manutenção</div></div>
     <div class="legend-card lc-b2"><div class="lc-title">B2</div><div class="lc-emph" style="color:#f0c080">🎯 Posterior + Braços</div><div class="lc-maint">Quad + Ombros: manutenção</div></div>
   </div>
-
   <div class="timing-grid">
     <div class="timing-card"><div class="timing-val">5</div><div class="timing-label">aquecimento</div></div>
     <div class="timing-card"><div class="timing-val">40</div><div class="timing-label">musculação</div></div>
     <div class="timing-card"><div class="timing-val">5</div><div class="timing-label">core</div></div>
     <div class="timing-card"><div class="timing-val">10</div><div class="timing-label">cardio</div></div>
   </div>
-
   <div class="tips-card">
-    <div class="tip-row"><span class="tip-icon">🎯</span><div class="tip-text"><strong>Exercícios com badge colorido</strong> = ênfase do dia. <strong>Badge cinza</strong> = manutenção (menos séries, sem falha)</div></div>
-    <div class="tip-row"><span class="tip-icon">🔄</span><div class="tip-text"><strong>Rotação contínua:</strong> A1→B1→A2→B2→A1→B1... Cada músculo recebe ênfase a cada ~8 dias</div></div>
-    <div class="tip-row"><span class="tip-icon">⏱</span><div class="tip-text"><strong>Descanso:</strong> 90s nos exercícios de ênfase · 60s nos de manutenção</div></div>
-    <div class="tip-row"><span class="tip-icon">📈</span><div class="tip-text"><strong>Sobrecarga progressiva:</strong> aumente carga nos exercícios de ênfase quando completar todas as reps com boa forma</div></div>
+    <div class="tip-row"><span class="tip-icon">🎯</span><div class="tip-text"><strong>Badge colorido</strong> = ênfase (vá até a falha) · <strong>Badge cinza</strong> = manutenção (sem falha, foco na técnica)</div></div>
+    <div class="tip-row"><span class="tip-icon">🔄</span><div class="tip-text"><strong>Rotação contínua:</strong> A1→B1→A2→B2→A1→... Cada músculo recebe ênfase a cada ~8 dias</div></div>
+    <div class="tip-row"><span class="tip-icon">⏱</span><div class="tip-text"><strong>Descanso:</strong> 90s nos de ênfase · 60s nos de manutenção</div></div>
+    <div class="tip-row"><span class="tip-icon">📈</span><div class="tip-text"><strong>Progressão:</strong> aumente carga nos exercícios de ênfase quando completar todas as reps com boa forma</div></div>
   </div>
 </div>
 
@@ -409,9 +377,8 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
   <button class="clear-hist" onclick="clearHistory()">🗑 Limpar histórico</button>
 </div>
 
-</div><!-- /screens -->
+</div>
 
-<!-- TAB BAR -->
 <div id="tab-bar">
   <div class="tab active" id="tab-a1" onclick="showTab('a1')"><span class="ti">🔴</span>A1 Peito</div>
   <div class="tab tb1" id="tab-b1" onclick="showTab('b1')"><span class="ti">🟣</span>B1 Quad</div>
@@ -422,35 +389,29 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 
 <script>
 const EX_NAMES = {
-  'a1-0':'Supino Reto','a1-1':'Remada Curvada','a1-2':'Supino Inclinado',
-  'a1-3':'Crucifixo','a1-4':'Puxada Frontal','a1-5':'Crossover',
+  'a1-0':'Supino Reto','a1-1':'Puxada Frontal','a1-2':'Supino Inclinado',
+  'a1-3':'Crucifixo','a1-4':'Crossover','a1-5':'Remada Sentada',
   'a1-6':'Crunch cabo','a1-7':'Prancha',
-  'b1-0':'Agachamento','b1-1':'Leg Press','b1-2':'Mesa Flexora',
-  'b1-3':'Desenvolvimento','b1-4':'Elev. Lateral','b1-5':'Face Pull',
-  'b1-6':'Rosca Direta','b1-7':'Tríceps Corda','b1-8':'Elev. Frontal',
-  'a2-0':'Remada Curvada','a2-1':'Supino Reto','a2-2':'Serrote',
-  'a2-3':'Crucifixo','a2-4':'Puxada Frontal','a2-5':'Pullover',
-  'a2-6':'Crossover','a2-7':'Leg Raise',
-  'b2-0':'Stiff','b2-1':'Leg Press','b2-2':'Mesa Flexora',
-  'b2-3':'Rosca Direta','b2-4':'Rosca Martelo','b2-5':'Tríceps Corda',
-  'b2-6':'Tríceps Testa','b2-7':'Face Pull','b2-8':'Elev. Lateral'
+  'b1-0':'Agachamento','b1-1':'Leg Press (pés baixos)','b1-2':'Mesa Flexora',
+  'b1-3':'Desenvolvimento','b1-4':'Elev. Lateral','b1-5':'Elev. Frontal',
+  'b1-6':'Rosca Direta','b1-7':'Tríceps Corda','b1-8':'Face Pull',
+  'a2-0':'Barra Fixa','a2-1':'Sup. Inclinado (manut.)','a2-2':'Remada Curvada',
+  'a2-3':'Serrote','a2-4':'Pullover','a2-5':'Remada Unilateral',
+  'a2-6':'Voador','a2-7':'Leg Raise',
+  'b2-0':'Stiff','b2-1':'Leg Press (pés altos)','b2-2':'Mesa Flexora',
+  'b2-3':'Rosca Scott','b2-4':'Rosca Martelo','b2-5':'Tríceps Testa',
+  'b2-6':'Mergulho Tríceps','b2-7':'Face Pull','b2-8':'Elev. Lateral'
 };
-
 const SCREEN_NAMES = {'a1':'A1 — Ênfase Peito','b1':'B1 — Ênfase Quad+Ombros','a2':'A2 — Ênfase Dorsal','b2':'B2 — Ênfase Posterior+Braços'};
-
-let state = JSON.parse(localStorage.getItem('treino_v5') || '{"cargas":{},"history":[]}');
-
-function saveState(){localStorage.setItem('treino_v5',JSON.stringify(state))}
-
+let state = JSON.parse(localStorage.getItem('treino_v7') || '{"cargas":{},"history":[]}');
+function saveState(){localStorage.setItem('treino_v7',JSON.stringify(state))}
 function showTab(name){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById(name+'-screen').classList.add('active');
   document.getElementById('tab-'+name).classList.add('active');
   if(name==='hist')renderHistory();
-  if(name==='week'){} 
 }
-
 function toggle(id,screen){
   const row=document.getElementById(id);
   row.querySelector('.ex-check').classList.toggle('done');
@@ -458,7 +419,6 @@ function toggle(id,screen){
   row.classList.toggle('checked');
   updateProgress(screen);
 }
-
 function updateProgress(screen){
   const el=document.getElementById(screen+'-screen');
   const total=el.querySelectorAll('.ex-check').length;
@@ -466,13 +426,11 @@ function updateProgress(screen){
   document.getElementById(screen+'-prog-fill').style.width=Math.round(done/total*100)+'%';
   document.getElementById(screen+'-prog-text').textContent=done+' / '+total;
 }
-
 function saveCarga(id,value){
   if(!value)return;
   state.cargas[id]=parseFloat(value);
   saveState();
 }
-
 function loadCargas(){
   Object.entries(state.cargas).forEach(([id,val])=>{
     const row=document.getElementById(id);
@@ -481,7 +439,6 @@ function loadCargas(){
     if(inp)inp.value=val;
   });
 }
-
 function resetScreen(screen){
   const el=document.getElementById(screen+'-screen');
   const snap={date:new Date().toLocaleDateString('pt-BR'),treino:SCREEN_NAMES[screen]||screen,cargas:{}};
@@ -500,7 +457,6 @@ function resetScreen(screen){
   updateProgress(screen);
   el.scrollTo({top:0,behavior:'smooth'});
 }
-
 function renderHistory(){
   const el=document.getElementById('hist-content');
   if(!state.history.length){el.innerHTML='<div class="hist-empty">Nenhum treino registrado ainda.<br>Complete um treino e toque em "↺ Reiniciar" para salvar.</div>';return}
@@ -510,11 +466,9 @@ function renderHistory(){
       ${Object.entries(e.cargas).map(([id,kg])=>`<div class="hist-ex"><span class="hist-ex-name">${EX_NAMES[id]||id}</span><span class="hist-ex-carga">${kg} kg</span></div>`).join('')}
     </div>`).join('');
 }
-
 function clearHistory(){
   if(confirm('Limpar todo o histórico?')){state.history=[];saveState();renderHistory()}
 }
-
 loadCargas();
 </script>
 </body>
